@@ -50,9 +50,9 @@ export default function page() {
     featchTasks()
   }
   return (
-    <div className='max-w-3xl mx-auto my-5'>
+    <div className='max-w-3xl mx-auto my-5 p-3'>
       {/* form */}
-      <form onSubmit={handlerSubmit} className='space-x-2'>
+      <form onSubmit={handlerSubmit} className='gap-3 flex justify-center items-center'>
         <input type="text" value={title} onChange={e => setTitle(e.target.value)} className='outline-2 p-2 rounded-md focus:outline-green-500 text-lg' placeholder='Enter task' />
         <button className={`text-lg bg-green-500 rounded-md py-2 px-5 hover:bg-green-600  ${editId && "bg-orange-500 text-white"}`}>{editId ? "Update" : "Add"}</button>
       </form>
@@ -66,7 +66,7 @@ export default function page() {
                   <input type="checkbox" checked={d.status} onChange={()=>toggle(d._id)} />
                   <span className={`text-lg pl-1 ${d.status && "line-through text-gray-500"}`}>{d.title}</span>
                 </div>
-                <div className='space-x-2'>
+                <div className='flex gap-2 items-center'>
                   <button className={`px-2 text-white rounded-md ${d.status ? "bg-gray-400 cursor-not-allowed":"bg-indigo-500"}`} disabled={d.status} onClick={() => editBtn(d)}>Edit</button>
                   <button className='bg-red-500 px-2 text-white rounded-md' onClick={()=>deleteBtn(d._id)}>Delete</button>
                 </div>
